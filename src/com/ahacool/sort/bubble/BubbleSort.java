@@ -9,35 +9,37 @@ package com.ahacool.sort.bubble;
  */
 public class BubbleSort {
 
-	public static int[] sArray = {
-			1, 8, 6, 7, 4, 2, 3, 0 };
+	public static int[] sArray = { 1, 8, 6, 7, 4, 2, 3, 0 };
 
 	public static void main(String[] args) {
-		sort(sArray);
+		System.out.println("排序前：");
+		int size = sArray.length;
+		for (int i = 0; i < size; i++) {
+			System.out.print(sArray[i] + " ");
+		}
+		
+		int[] newArray = sort(sArray);
+		
+		System.out.println("\n排序后：");
+		for (int i = 0; i < size; i++) {
+			System.out.print(newArray[i] + " ");
+		}
 	}
 
-	private static void sort(int[] pArray) {
-		int[] array = pArray.clone();
-		int size = array.length;
-		
+	// 冒泡排序
+	// 从第一位开始，比较相邻两个数，如果位置与排序要求相反，交换他们之的位置。
+	private static int[] sort(int[] pArray) {
+		int size = pArray.length;
 		for (int i = 1; i < size; i++) {
 			for (int j = 0; j < size - 1; j++) {
-				if (array[j] > array[j + 1]) {
-					int temp = array[j + 1];
-					array[j + 1] = array[j];
-					array[j] = temp;
+				if (pArray[j] > pArray[j + 1]) {
+					int temp = pArray[j + 1];
+					pArray[j + 1] = pArray[j];
+					pArray[j] = temp;
 				}
 			}
 		}
-		
-		System.out.println("排序前：");
-		for (int i = 0; i < size; i++) {
-			System.out.print(pArray[i] + " ");
-		}
-		System.out.println("\n排序后：");
-		for (int i = 0; i < size; i++) {
-			System.out.print(array[i] + " ");
-		}
+		return pArray;
 	}
 
 }
