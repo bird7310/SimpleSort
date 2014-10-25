@@ -1,4 +1,4 @@
-package com.ahacool.sort.bubble;
+package com.ahacool.sort;
 
 /**
  * @ClassName QuickSort
@@ -8,28 +8,9 @@ package com.ahacool.sort.bubble;
  * 
  */
 public class QuickSort {
-
-	public static int[] sArray = {
-			1, 8, 6, 7, 4, 2, 3, 0 };
-
-	public static void main(String[] args) {
-		System.out.println("排序前：");
-		int size = sArray.length;
-		for (int i = 0; i < size; i++) {
-			System.out.print(sArray[i] + " ");
-		}
-
-		int[] newArray = sort(sArray);
-
-		System.out.println("\n排序后：");
-		for (int i = 0; i < size; i++) {
-			System.out.print(newArray[i] + " ");
-		}
-	}
-
 	// 快速排序
 	// 选择一个基准元素，第一个或者最后一个。通过一次扫描，将序列分成两个部分，一个比基准元素小，一个大于等于基准元素。再用同样方法对这两个部分分别排序。
-	private static int[] sort(int[] pArray) {
+	public static int[] sort(int[] pArray) {
 		if (pArray.length > 0) {
 			doSort(pArray, 0, pArray.length - 1);
 		}
@@ -62,5 +43,4 @@ public class QuickSort {
 		pArray[pFirstIndex] = temp;
 		return pFirstIndex;
 	}
-
 }
